@@ -1,10 +1,6 @@
 #include <stdio.h>
 
-bool is_little_endian() {
-    int i = 1;
-    unsigned char *chars = reinterpret_cast<unsigned char *>(&i);
-    return chars[0] > chars[1];
-}
+extern "C" {
 
 void print_bytes(unsigned char* input, size_t num_bytes) {
     for (size_t i = 0; i < num_bytes; ++i) {
@@ -23,8 +19,4 @@ void print_float(float f) {
     print_bytes((unsigned char*)&f, sizeof(f));
 }
 
-int main() {
-    printf("this machine is %s endian\n", is_little_endian() ? "little" : "big");
-    print_int(113);
-    print_float(3.6f);
-}
+} //extern "C"

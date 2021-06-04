@@ -1,3 +1,20 @@
+#maybe a bit unorthodox, but I really don't want to create a bin/ directory
+#and since this isn't production and I can do whatever I want... im doing it
+
+#ignore all
+*
+
+#allow readme, license, and makefile in root
+!makefile
+!readme.md
+!license
+
+#allow anything in subdirectories and with extensions
+!*/
+!*.*
+
+#ignore some obvious junk
 *.out
 *.o
 *.exe
+*.cgh
